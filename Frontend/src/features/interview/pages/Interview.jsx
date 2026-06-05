@@ -58,15 +58,32 @@ const RoadMapDay = ({ day }) => (
 
 // ── Main Component ────────────────────────────────────────────────────────────
 const Interview = () => {
+
+    /**
+     * Interview Page Logic:
+     * 1. On page load, fetch the interview report using the interviewId from the URL params.
+     * 2. Display a loading screen while the data is being fetched.
+     * 3. Once data is loaded, display the three main sections: Technical Questions, Behavioral Questions, and Road Map.
+     * 4. Implement a left-side navigation to switch between these sections without reloading the page.
+     * 5. In the right sidebar, display the Match Score and Skill Gaps based on the report <data value="" className=""></data>
+     */
+
+    const navigate = useNavigate()
     const [ activeNav, setActiveNav ] = useState('technical')
     const { report, getReportById, loading, getResumePdf } = useInterview()
     const { interviewId } = useParams()
 
     useEffect(() => {
+        if (!interviewId) {
+            navigate('/dashboard')
+        }
+    }, [interviewId, navigate])
+
+    useEffect(() => {
         if (interviewId) {
             getReportById(interviewId)
         }
-    }, [ interviewId ])
+    }, [interviewId, getReportById])
 
 
 

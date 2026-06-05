@@ -136,22 +136,27 @@ async function logoutUserController(req, res) {
  */
 async function getMeController(req, res) {
 
-    const user = await userModel.findById(req.user.id)
+    try {
+        const user = await userModel.findById(req.user.id)
 
+        res.status(200).json({
+            message: "User details fetched successfully",
+            user: {
+                id: user._id,
+                username: user.username,
+                email: user.email,
+                isPremium: user.isPremium,
+                premiumPlan: user.premiumPlan,
+                premiumExpiresAt: user.premiumExpiresAt
+            }
+        })
 
-
-    res.status(200).json({
-        message: "User details fetched successfully",
-        user: {
-            id: user._id,
-            username: user.username,
-            email: user.email,
-            isPremium: user.isPremium,
-            premiumPlan: user.premiumPlan,
-            premiumExpiresAt: user.premiumExpiresAt
-        }
-    })
-
+    } catch (error) {
+        res.status(500).json({
+            message: "Something went wrong while fetching user details",
+            error: error.message
+        })
+    }
 }
 
 
