@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://rajdahare-interview-prep.vercel.app",
+    baseURL: "https://interview-prep-mpyn.onrender.com",
     withCredentials: true,
 })
 
