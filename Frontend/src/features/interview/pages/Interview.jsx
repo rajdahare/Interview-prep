@@ -68,22 +68,18 @@ const Interview = () => {
      * 5. In the right sidebar, display the Match Score and Skill Gaps based on the report <data value="" className=""></data>
      */
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const [ activeNav, setActiveNav ] = useState('technical')
     const { report, getReportById, loading, getResumePdf } = useInterview()
     const { interviewId } = useParams()
 
-    useEffect(() => {
-        if (!interviewId) {
-            navigate('/dashboard')
-        }
-    }, [interviewId, navigate])
+    
 
     useEffect(() => {
         if (interviewId) {
             getReportById(interviewId)
         }
-    }, [interviewId, getReportById])
+    }, [interviewId])
 
 
 
