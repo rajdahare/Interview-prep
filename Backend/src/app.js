@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://interview-prep-mpyn.onrender.com",
+    origin: "https://rajdahare-interview-prep.vercel.app",
     credentials: true
 }))
 
