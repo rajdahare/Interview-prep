@@ -1,11 +1,15 @@
 import axios from "axios"
 
 
-const api = axios.create({
-    baseURL: "https://interview-prep-mpyn.onrender.com",
-    withCredentials: true
-})
+// const api = axios.create({
+//     baseURL: "https://interview-prep-mpyn.onrender.com",
+//     withCredentials: true
+// })
 
+const api = axios.create({
+    baseURL: "/",
+    withCredentials: true,
+});
 export async function register({ username, email, password }) {
 
     try {

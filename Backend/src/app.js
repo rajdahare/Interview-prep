@@ -9,11 +9,10 @@ app.use(cookieParser())
 app.use(cors({
     origin: [
         "http://localhost:5173",
-        "https://rajdahare-interview-prep.vercel.app"
+        process.env.SITE_URI
     ],
     credentials: true
 }))
-
 
 
 /* require all the routes here */
