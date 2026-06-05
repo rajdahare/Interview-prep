@@ -1,7 +1,8 @@
-import { createContext,useState } from "react";
+import { useState } from "react";
+import { InterviewContext } from "./interview.provider";
 
 
-export const InterviewContext = createContext()
+// export const InterviewContext = createContext()
 
 export const InterviewProvider = ({ children }) => {
     const [loading, setLoading] = useState(false)
