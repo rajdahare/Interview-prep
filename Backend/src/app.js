@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://interview-prep-1-frontend-g11t.onrender.com",
+    origin: "https://rajdahare-interview-prep.vercel.app",
     credentials: true
 }))
 
